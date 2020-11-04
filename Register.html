@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title> Registro </title>
+</head>
+<body style="background-color: steelblue;">
+    <main class="container">
+
+        <h2 class="title"> Registrarse</h2>
+        <hr>
+
+        <form action="" method="post">
+
+        <div class="container-principal">
+            <label> Nombre </label>
+            <input type="text" placeholder="Escribe tu nombre" name="name" required>
+
+            <label> Correo </label>
+            <input type="text" placeholder="Escribe tu correo electrónico" name="email" required>
+
+            <div class="small-input">
+                <div>
+                    <label> DUI </label>
+                    <input type="tel" placeholder="Digita tu número de DUI" name="dui" required>
+                </div>
+
+                <div>
+                    <label> Teléfono </label>
+                    <input type="tel" placeholder="2222-9999" name="cellphone" pattern="[0-9]{4}-[0-9]{4}" required>
+                </div>
+            </div>
+            
+            <label> Usuario </label>
+            <input type="text" placeholder="Escribe un nombre de usuario" name="username" required>
+
+            <label> Contraseña </label>
+            <input type="password" placeholder="Ingresar contraseña" name="passw" required>
+
+            <label> Confirmar contraseña </label>
+            <input type="password" placeholder="Confirma tu contraseña" name="passwC" required>
+        </div>
+
+        <button type="submit" class="btn accept"> Registrarse</button>
+        <button type="button" class="btn normal"> Iniciar Sesión</button>
+        </form>
+
+    </main>
+    
+</body>
+</html>

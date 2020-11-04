@@ -1,0 +1,185 @@
+body
+{
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: hidden;
+    padding: 1em 5%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    display: inline;
+}
+
+hr{
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+header{
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    left: 240px;
+}
+
+.header-add{
+    display: inline;
+    width: 100%;
+    background-color: aqua;
+}
+
+h1{
+    color: steelblue;
+    margin-left: 20px;
+}
+
+main
+{
+    width: 35%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    padding: 5em;
+    flex-flow: wrap;
+    border-radius: 0.3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn
+{
+    border: solid 1px transparent;
+    float: right;
+    border-radius: 0.3em;
+    box-shadow: none;
+    padding: 0.9em;
+    margin-top: 1em;
+    margin-left: 1em;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.containerT{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container-cuentas{
+    padding: 0;
+    left: 25%;
+    position: absolute;
+    display: none;
+    width: 40%;
+}
+
+.container-tarjetas{
+    padding: 0;
+    left: 25%;
+    display: none;
+    position: absolute;
+    width: 40%;
+}
+
+.container-table{
+    padding: 0;
+    height: 100%;
+    position: absolute;
+    right: 15%;
+    width: 80%;
+}
+
+table {
+    margin-top: 200px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.small-input{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.accept{
+    background: steelblue;
+    color: white;
+}
+
+.normal{
+    background-color: silver;
+}
+
+.radio-buttons input{
+    position: absolute;
+    float: left;
+    width: 25%;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav {
+    position:absolute;
+    height: 100%;
+    width: 240px;
+    top: 0;
+    left: 0;
+    background-color: steelblue;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidenav a {
+    padding: 100px 15px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    align-self: center;
+    text-align: center;
+}
+
+.sidenav a:hover {
+    color: #504e4e;
+}
+
+.side-container {
+    position: absolute;
+    height: 100%;
+    top: 115px;
+    left: 240px;
+    right: 0;
+    bottom: 40px;
+    width: 100%;
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
