@@ -8,15 +8,16 @@
     <title>Página Principal</title>
 </head>
 
-<body style="background-color: whitesmoke;">
+<body style="background-color: whitesmoke;" >
     <header>
         <h1>Bienvenido @NombreUsuario</h1>
         <hr>
     </header>
 
-    <div class="sidenav">
-        <a href="#Cuentas">Cuentas Bancarias</a>
-        <a href="#Tarjeta">Tarjetas de Crédito</a>
+    <div class="sidenav" >
+        <a onclick="mostrarP();" href="Principal.html">Principal  </a>
+        <a onclick="mostrarCuentas();" href="#Cuentas">Cuentas Bancarias  </a>
+        <a onclick="mostrarTarjetas();" href="#Tarjeta">Tarjetas de Crédito</a>
         <a href="#CerrarSesion">Cerrar Sesión</a>
     </div>
 
@@ -86,7 +87,7 @@
             </form>
         </div>
 
-        <div class="container-table">
+        <div id="Principal" class="container-table">
             <div class="header-add">
                 <button type="button" class="btn accept"> Agregar Nueva</button>
             </div>
@@ -130,6 +131,8 @@
             </table>
         </div>
     </div>
+
+    <script src="main.js"></script>
 
 </body>
 
