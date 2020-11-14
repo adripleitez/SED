@@ -1,3 +1,4 @@
+
 body
 {
     box-sizing: border-box;
@@ -156,7 +157,8 @@ input{
     justify-content: center;
 }
 
-.sidenav a {
+.sidenav a
+ {
     padding: 100px 15px 6px 16px;
     text-decoration: none;
     font-size: 25px;
@@ -183,3 +185,191 @@ input{
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (min-width: 1280px) and (max-width: 1441px) {
+ 
+  
+    .container{
+        width: 50%;
+        font-size: 10px;
+
+    }
+
+    input[type="tel"]{
+     width: 200px;
+    }
+
+    input[type="radio"]{
+        left: 50px;
+      }
+  
+
+    .sidenav{
+        width: 200px;
+    }
+
+    .sidenav a{
+     text-align: center;
+    }
+
+    .side-container{
+        left: 180px;
+        height: 87.1%;
+        overflow: hidden;
+
+    }
+    header{
+       margin-left: 0; 
+       left:200px;
+    }
+
+    table{
+        width: 93%;
+    }
+
+    hr{
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .header-add .btn.accept{
+        margin-right: 61px;
+    }
+
+    .container-tarjetas{
+        margin-top : -10px;
+    }
+
+    .containerT{
+        font-size: 11px;
+    }
+
+
+    .btn.accept, .btn.normal{
+        margin-top: 0;
+    }
+}
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+
+    .container{
+        width: 55%;
+        font-size: 0px;
+
+    }
+
+    input[type="tel"]{
+     width: 200px;
+
+    }
+    input[type="radio"]{
+      left: 50px;
+    }
+
+    .sidenav{
+        width: 200px;
+    }
+
+    .sidenav a{
+     text-align: center;
+    }
+
+    .side-container{
+        left: 180px;
+        height: 87.1%;
+        overflow: hidden;
+
+    }
+    header{
+       margin-left: 0; 
+       left:200px;
+    }
+
+    table{
+        width: 93%;
+    }
+
+    hr{
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .header-add .btn.accept{
+        margin-right: 61px;
+    }
+
+    .container-tarjetas{
+        font-size: 10px;
+        margin-top : -10px;
+    }
+
+
+    .btn.accept, .btn.normal{
+        margin-top: 0;
+    }
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+   .container{
+        width: 55%;
+
+    }
+
+    input[type="tel"]{
+     width: 150px;
+    }
+
+    input[type="radio"]{
+        left: 50px;
+      }
+  
+
+    .sidenav{
+        width: 150px;
+    }
+
+    .sidenav a{
+        text-align: center;
+       }
+
+    .side-container{
+        position: absolute;
+        left: 145px;
+
+    }
+    header{
+       margin-left: 0; 
+       left:200px;
+    }
+
+    table{
+        width: 90%;
+    }
+
+    hr{
+        width: 90%;
+        margin-left: 0;
+       
+    }
+
+    .header-add .btn.accept{
+        margin-right: 80px;
+    }
+
+    .container-tarjetas{
+        margin-top : -10px;
+    }
+
+
+    .btn.accept, .btn.normal{
+        margin-top: 0;
+    }
+
+}
+
+
+
+
