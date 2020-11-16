@@ -485,7 +485,7 @@
     <div class="containerPrincipal" id="containerPrincipal" display="none">
 
         <header>
-            <h1>Bienvenido @NombreUsuario</h1>
+            <h1 id="welcome">Bienvenido @NombreUsuario</h1>
             <hr>
         </header>
 
@@ -742,9 +742,11 @@
                     }
                 })
                     .then(response => {
-                        console.log(response)
+                        return response.json()
                     })
                     .then(data => {
+                        console.log(data);
+                        document.getElementById('welcome').innerHTML = `Welcome ${data.name}`
                         ocultarContainerLyR();
                         mostrarContainerP();
                     })
