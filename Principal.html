@@ -426,7 +426,7 @@
                 <input type="password" id="password" placeholder="Ingresar contraseña" name="passw" required>
             </div>
 
-            <button type="submit" class="btn accept"> Iniciar Sesión</button>
+            <button type="submit" id="login" class="btn accept"> Iniciar Sesión</button>
             <button type="button" id="toRegister" class="btn normal"> Registrarse</button>
         </form>
 
@@ -485,10 +485,10 @@
         </header>
 
         <div class="sidenav">
-            <a onclick="mostrarP();" href="#Principal">Principal </a>
-            <a onclick="agregarCuentas();" href="#Cuentas">Cuentas Bancarias </a>
-            <a onclick="agregarTarjetas();" href="#Tarjeta">Tarjetas de Crédito</a>
-            <a onclick="mostrarContainerL();">Cerrar Sesión</a>
+            <a  id="sidePrincipal" href="#Principal">Principal </a>
+            <a  id="sideAccount" href="#Cuentas">Cuentas Bancarias </a>
+            <a id="sideCard" href="#Tarjeta">Tarjetas de Crédito</a>
+            <a id="logout">Cerrar Sesión</a>
         </div>
 
 
@@ -562,14 +562,15 @@
             </div>
 
             <div id="Principal" class="container-table">
-                <button type="submit" class="btn accept" onclick="mostrarCuentas();"> Mostrar Cuentas</button>
-                <button type="button" class="btn normal" onclick="mostrarTarjetas();"> Mostrar Tarjetas</button>
+                
+                <button type="submit" id="showAccount" class="btn accept" > Mostrar Cuentas</button>
+                <button type="button" id="showCard" class="btn normal"> Mostrar Tarjetas</button>
             </div>
 
             <div id="showAccounts" class="container-tableA">
                 <h2 class="title"> Cuentas</h2>
                 <div class="header-add">
-                    <button type="button" class="btn accept" onclick="agregarCuentas();"> Agregar Nueva Cuenta</button>
+                    <button type="button" id="addCount" class="btn accept" > Agregar Nueva Cuenta</button>
                 </div>
     
                 <table>
@@ -614,7 +615,7 @@
             <div id="showCards" class="container-tableC">
                 <h2 class="title"> Tarjetas</h2>
                 <div class="header-add">
-                    <button type="button" class="btn accept" onclick="agregarTarjetas();"> Agregar Nueva Tarjeta</button>
+                    <button type="button" id="addCard" class="btn accept" > Agregar Nueva Tarjeta</button>
                 </div>
     
                 <table>
@@ -760,13 +761,26 @@
 
             const toRegister = document.getElementById('toRegister').addEventListener('click', (e) => mostrarContainerR());
             const toLogin = document.getElementById('toLogin').addEventListener('click', (e) => mostrarContainerL());
+            const showAccount = document.getElementById('showAccount').addEventListener('click', (e) => mostrarCuentas());
+            const showCard = document.getElementById('showCard').addEventListener('click', (e) => mostrarTarjetas());
+            const addCard = document.getElementById('addCard').addEventListener('click', (e) => agregarTarjetas());
+            const addCount = document.getElementById('addCount').addEventListener('click', (e) => agregarCuentas());
+            const sidePrincipal = document.getElementById('sidePrincipal').addEventListener('click', (e) => mostrarP());
+            const sideAccount = document.getElementById('sideAccount').addEventListener('click', (e) => agregarCuentas());
+            const sideCard = document.getElementById('sideCard').addEventListener('click', (e) => agregarTarjetas());
+            const logout = document.getElementById('logout').addEventListener('click', (e) => mostrarContainerL());
+
 
             var register = document.getElementById('register');
+
 
             register.addEventListener('button', (e) => {
                 e.preventDefault();
                 mostrarContainerL();
             });
+
+
+
 
             register.addEventListener('submit', (e) => {
 
@@ -832,6 +846,7 @@
                         document.getElementById('welcome').innerHTML = `Welcome ${data.name}`
                         ocultarContainerLyR();
                         mostrarContainerP();
+                        mostrarP();
                     })
                     .catch(err => console.log(err))
 
