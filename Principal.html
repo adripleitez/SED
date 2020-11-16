@@ -4,22 +4,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
     <title>Página Principal</title>
 </head>
 
+
+<style>
+
+body
+{
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: hidden;
+    padding: 1em 5%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    display: inline;
+}
+
+hr{
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+header{
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    left: 240px;
+}
+
+.header-add{
+    display: inline;
+    width: 100%;
+    background-color: aqua;
+}
+
+h1{
+    color: steelblue;
+    margin-left: 20px;
+}
+
+.containerL{
+    display: block;
+}
+
+.containerR, .containerPrincipal{
+    display: none;
+}
+
+.containerR,.containerL
+{
+    width: 35%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    padding: 5em;
+    flex-flow: wrap;
+    border-radius: 0.3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn
+{
+    border: solid 1px transparent;
+    float: right;
+    border-radius: 0.3em;
+    box-shadow: none;
+    padding: 0.9em;
+    margin-top: 1em;
+    margin-left: 1em;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.containerT{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container-cuentas{
+    padding: 0;
+    left: 25%;
+    position: absolute;
+    display: none;
+    width: 40%;
+}
+
+.container-tarjetas{
+    padding: 0;
+    left: 25%;
+    display: none;
+    position: absolute;
+    width: 40%;
+}
+
+.container-table{
+    padding: 0;
+    height: 100%;
+    position: absolute;
+    right: 15%;
+    width: 80%;
+}
+
+table {
+    margin-top: 200px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.small-input{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.accept{
+    background: steelblue;
+    color: white;
+}
+
+.normal{
+    background-color: silver;
+}
+
+.radio-buttons input{
+    position: absolute;
+    float: left;
+    width: 25%;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav {
+    position:absolute;
+    height: 100%;
+    width: 240px;
+    top: 0;
+    left: 0;
+    background-color: steelblue;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidenav a
+ {
+    padding: 100px 15px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    align-self: center;
+    text-align: center;
+}
+
+.sidenav a:hover {
+    color: #504e4e;
+}
+
+.side-container {
+    position: absolute;
+    height: 100%;
+    top: 115px;
+    left: 240px;
+    right: 0;
+    bottom: 40px;
+    width: 100%;
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1441px) {
+ 
+    
+    .containerR,.containerPrincipal{
+        display: none;
+    }
+  
+    .containerR,.containerL{
+        width: 50%;
+        font-size: 10px;
+
+    }
+
+    input[type="tel"]{
+     width: 200px;
+    }
+
+    input[type="radio"]{
+        left: 50px;
+      }
+  
+
+    .sidenav{
+        width: 200px;
+    }
+
+    .sidenav a{
+     text-align: center;
+    }
+
+    .side-container{
+        left: 180px;
+        height: 87.1%;
+        overflow: hidden;
+
+    }
+    header{
+       margin-left: 0; 
+       left:200px;
+    }
+
+    table{
+        width: 93%;
+    }
+
+    hr{
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .header-add .btn.accept{
+        margin-right: 61px;
+    }
+
+    .container-tarjetas{
+        margin-top : -10px;
+    }
+
+    .containerT{
+        font-size: 11px;
+    }
+
+
+    .btn.accept, .btn.normal{
+        margin-top: 0;
+    }
+}
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+
+    .containerR,.containerPrincipal{
+        display: none;
+    }
+
+    .containerR,.containerL{
+        width: 55%;
+        font-size: 0px;
+
+    }
+
+    input[type="tel"]{
+     width: 200px;
+
+    }
+    input[type="radio"]{
+      left: 50px;
+    }
+
+    .sidenav{
+        width: 200px;
+    }
+
+    .sidenav a{
+     text-align: center;
+    }
+
+    .side-container{
+        left: 180px;
+        height: 87.1%;
+        overflow: hidden;
+
+    }
+    header{
+       margin-left: 0; 
+       left:200px;
+    }
+
+    table{
+        width: 93%;
+    }
+
+    hr{
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .header-add .btn.accept{
+        margin-right: 61px;
+    }
+
+    .container-tarjetas{
+        font-size: 10px;
+        margin-top : -10px;
+    }
+
+
+    .btn.accept, .btn.normal{
+        margin-top: 0;
+    }
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+    
+    .containerR,.containerPrincipal{
+        display: none;
+    }
+  
+   .containerR,.containerL{
+        width: 55%;
+
+    }
+
+    input[type="tel"]{
+     width: 150px;
+    }
+
+    input[type="radio"]{
+        left: 50px;
+      }
+  
+
+    .sidenav{
+        width: 150px;
+    }
+
+    .sidenav a{
+        text-align: center;
+       }
+
+    .side-container{
+        position: absolute;
+        left: 145px;
+
+    }
+    header{
+       margin-left: 0; 
+       left:200px;
+    }
+
+    table{
+        width: 90%;
+    }
+
+    hr{
+        width: 90%;
+        margin-left: 0;
+       
+    }
+
+    .header-add .btn.accept{
+        margin-right: 80px;
+    }
+
+    .container-tarjetas{
+        margin-top : -10px;
+    }
+
+
+    .btn.accept, .btn.normal{
+        margin-top: 0;
+    }
+
+}
+
+
+</style>
+
 <body style="background-color: whitesmoke;" >
+
+
+    <div class="containerLogin" id="containerLogin">
+
+        <h2 class="title">Iniciar Sesión</h2>
+        <hr>
+
+        <form id ="form" action="" method="post">
+
+        <div class="containerT">
+            <label> Usuario </label>
+            <input type="text" id= "username" placeholder="Nombre de usuario" name="username" required>
+
+            <label> Contraseña </label>
+            <input type="password" id="password" placeholder="Ingresar contraseña" name="passw" required>
+        </div>
+
+        <button type="submit" class="btn accept" onclick="mostrarContainerP();">  Iniciar Sesión</button>
+        <button type="button" class="btn normal" onclick="mostrarContainerR();"> Registrarse</button>
+        </form>
+
+    </div>
+
+
+    <div class="containerR" id="containerR" display="none">
+
+        <h2 class="title"> Registrarse</h2>
+        <hr>
+
+        <form id="register" action="" method="post">
+
+        <div class="container-principal">
+            <label> Nombre </label>
+            <input type="text" id= "name" placeholder="Escribe tu nombre" name="name" required>
+
+            <label> Correo </label>
+            <input type="text" id= "email" placeholder="Escribe tu correo electrónico" name="email" required>
+
+            <div class="small-input">
+                <div>
+                    <label> DUI </label>
+                    <input type="tel" id= "dui" placeholder="Digita tu número de DUI" name="dui" required>
+                </div>
+
+                <div>
+                    <label> Teléfono </label>
+                    <input type="tel" id = "tel" placeholder="2222-9999" name="cellphone" pattern="[0-9]{4}-[0-9]{4}" required>
+                </div>
+            </div>
+            
+            <label> Usuario </label>
+            <input type="text" id="user" placeholder="Escribe un nombre de usuario" name="username" required>
+
+            <label> Contraseña </label>
+            <input type="password" id="pass" placeholder="Ingresar contraseña" name="passw" required>
+
+            <label> Confirmar contraseña </label>
+            <input type="password" id="rePassword" placeholder="Confirma tu contraseña" name="passwC" required>
+        </div>
+
+        <button type="submit" class="btn accept" onclick="mostrarContainerP();"> Registrarse</button>
+        <button type="button" class="btn normal" onclick="mostrarContainerL();"> Iniciar Sesión</button>
+        </form>
+
+    </div>
+
+
+    <div class="containerPrincipal" id="containerPrincipal" display="none">
+
     <header>
         <h1>Bienvenido @NombreUsuario</h1>
         <hr>
     </header>
 
     <div class="sidenav" >
-        <a onclick="mostrarP();" href="Principal.html">Principal  </a>
+        <a onclick="mostrarP();" href="#Principal">Principal  </a>
         <a onclick="mostrarCuentas();" href="#Cuentas">Cuentas Bancarias  </a>
         <a onclick="mostrarTarjetas();" href="#Tarjeta">Tarjetas de Crédito</a>
-        <a href="Login.html">Cerrar Sesión</a>
+        <a onclick="mostrarContainerL();">Cerrar Sesión</a>
     </div>
+
 
     <div class="side-container">
         <div id="cuentas" class="container-cuentas">
@@ -131,8 +599,146 @@
             </table>
         </div>
     </div>
+</div>
 
-    <script src="main.js"></script>
+    <script>
+
+
+    function ocultarPyT() {
+        document.getElementById('tarjetas').style.display = "none";
+        document.getElementById('Principal').style.display = "none";
+    }
+
+    function ocultarPyC() {
+        document.getElementById('cuentas').style.display = "none";
+        document.getElementById('Principal').style.display = "none";
+    }
+
+    function ocultarCyT() {
+        document.getElementById('cuentas').style.display = "none";
+        document.getElementById('tarjetas').style.display = "none";
+    }
+
+    function mostrarCuentas() {
+        ocultarPyT();
+        document.getElementById('cuentas').style.display = "block";
+    }
+    function mostrarTarjetas() {
+        ocultarPyC();
+        document.getElementById('tarjetas').style.display = "block";
+    }
+
+    function mostrarP() {
+        ocultarCyT();
+        document.getElementById('Principal').style.display = "block";
+    }
+
+    function ocultarContainerLyR(){
+        document.getElementById('containerLogin').style.display="none";
+        document.getElementById('containerR').style.display="none";
+    }
+    
+    function ocultarContainerRyP(){
+        document.getElementById('containerR').style.display="none";
+        document.getElementById('containerPrincipal').style.display="none";
+    }
+    
+    function ocultarContainerPyL(){
+        document.getElementById('containerPrincipal').style.display="none";
+        document.getElementById('containerLogin').style.display="none"
+    }
+    
+    function mostrarContainerL(){
+        ocultarContainerRyP();
+        document.getElementById('containerLogin').style.display="block"
+    }
+    
+    function mostrarContainerP(){
+        ocultarContainerLyR();
+        document.getElementById('containerPrincipal').style.display="block"
+    }
+    
+    function mostrarContainerR(){
+        ocultarContainerPyL();
+        document.getElementById('containerR').style.display="block"
+    }
+
+    const url = 'http://localhost:3000/'
+
+    var register = document.getElementById('register')
+
+    register.addEventListener('submit', (e) => {
+
+        e.preventDefault();
+
+        console.log("entro");
+
+        var name = document.getElementById('name').value
+        var email = document.getElementById('email').value
+        var dui = document.getElementById('dui').value
+        var phone = document.getElementById('tel').value
+        var username = document.getElementById('user').value
+        var password = document.getElementById('pass').value
+
+
+        fetch(`${url}addClient`, {
+            method: 'POST',
+            body: JSON.stringify({
+                username: username,
+                name: name,
+                dui: dui,
+                phone: phone,
+                email: email,
+                password: password
+            }),
+            headers: {
+				'Content-type': 'text/plain',
+				Accept: 'application/json'
+			}
+        })
+            .then(response => response.json())
+            .then(data => {
+
+            })
+            .catch(err => console.log(err))
+
+    })
+
+    
+    var form = document.getElementById('form')
+    
+        form.addEventListener('submit',(e) =>{
+
+        e.preventDefault();    
+    
+        var username = document.getElementById('username').value
+        var password = document.getElementById('password').value
+    
+    
+        fetch(`${url}client`,{
+            method: 'GET',
+            body: JSON.stringify({
+    
+                username : username,
+                email : email,
+                password : password,
+            }),
+            headers:{
+                'Content-Type' : 'aplication/json',
+                Accept: 'application/json'
+            }  
+        })
+        .then(response => response.json())
+        .then(data => {
+            
+        })
+        .catch(err=>console.log(err) )
+    
+    })
+
+
+
+    </script>
 
 </body>
 
