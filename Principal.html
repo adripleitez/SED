@@ -204,11 +204,9 @@
 
     @media screen and (min-width: 1280px) and (max-width: 1441px) {
 
-
-        .containerR,
-        .containerPrincipal {
-            display: none;
-        }
+        .containerR,.containerPrincipal,.container-cuentas,.container-tarjetas,.container-tableA,.container-tableC{
+        display: none;
+    }
 
         .containerR,
         .containerL {
@@ -278,10 +276,9 @@
 
     @media screen and (min-width: 1024px) and (max-width: 1280px) {
 
-        .containerR,
-        .containerPrincipal {
-            display: none;
-        }
+        .containerR,.containerPrincipal,.container-cuentas,.container-tarjetas,.container-tableA,.container-tableC{
+        display: none;
+    }
 
         .containerR,
         .containerL {
@@ -347,11 +344,9 @@
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-
-        .containerR,
-        .containerPrincipal {
-            display: none;
-        }
+        .containerR,.containerPrincipal,.container-cuentas,.container-tarjetas,.container-tableA,.container-tableC{
+        display: none;
+    }
 
         .containerR,
         .containerL {
@@ -491,8 +486,8 @@
 
         <div class="sidenav">
             <a onclick="mostrarP();" href="#Principal">Principal </a>
-            <a onclick="mostrarCuentas();" href="#Cuentas">Cuentas Bancarias </a>
-            <a onclick="mostrarTarjetas();" href="#Tarjeta">Tarjetas de Crédito</a>
+            <a onclick="agregarCuentas();" href="#Cuentas">Cuentas Bancarias </a>
+            <a onclick="agregarTarjetas();" href="#Tarjeta">Tarjetas de Crédito</a>
             <a onclick="mostrarContainerL();">Cerrar Sesión</a>
         </div>
 
@@ -567,10 +562,16 @@
             </div>
 
             <div id="Principal" class="container-table">
-                <div class="header-add">
-                    <button type="button" class="btn accept"> Agregar Nueva</button>
-                </div>
+                <button type="submit" class="btn accept" onclick="mostrarCuentas();"> Mostrar Cuentas</button>
+                <button type="button" class="btn normal" onclick="mostrarTarjetas();"> Mostrar Tarjetas</button>
+            </div>
 
+            <div id="showAccounts" class="container-tableA">
+                <h2 class="title"> Cuentas</h2>
+                <div class="header-add">
+                    <button type="button" class="btn accept" onclick="agregarCuentas();"> Agregar Nueva Cuenta</button>
+                </div>
+    
                 <table>
                     <tr>
                         <th>Company</th>
@@ -609,39 +610,121 @@
                     </tr>
                 </table>
             </div>
+
+            <div id="showCards" class="container-tableC">
+                <h2 class="title"> Tarjetas</h2>
+                <div class="header-add">
+                    <button type="button" class="btn accept" onclick="agregarTarjetas();"> Agregar Nueva Tarjeta</button>
+                </div>
+    
+                <table>
+                    <tr>
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Centro comercial Moctezuma</td>
+                        <td>Francisco Chang</td>
+                        <td>Mexico</td>
+                    </tr>
+                    <tr>
+                        <td>Ernst Handel</td>
+                        <td>Roland Mendel</td>
+                        <td>Austria</td>
+                    </tr>
+                    <tr>
+                        <td>Island Trading</td>
+                        <td>Helen Bennett</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Laughing Bacchus Winecellars</td>
+                        <td>Yoshi Tannamuri</td>
+                        <td>Canada</td>
+                    </tr>
+                    <tr>
+                        <td>Magazzini Alimentari Riuniti</td>
+                        <td>Giovanni Rovelli</td>
+                        <td>Italy</td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
     </div>
     <script>
         window.onload = function () {
 
-            function ocultarPyT() {
-                document.getElementById('tarjetas').style.display = "none";
-                document.getElementById('Principal').style.display = "none";
-            }
+    function ocultarAgregarCyT() {
+        document.getElementById('cuentas').style.display = "none";
+        document.getElementById('tarjetas').style.display = "none";
+    }
 
-            function ocultarPyC() {
-                document.getElementById('cuentas').style.display = "none";
-                document.getElementById('Principal').style.display = "none";
-            }
+    function ocultarmostrarPyT(){
+        document.getElementById('Principal').style.display="none"
+        document.getElementById('showCards').style.display="none"
+        document.getElementById('tarjetas').style.display="none"
+        document.getElementById('showAccounts').style.display="none"
+    }
 
-            function ocultarCyT() {
-                document.getElementById('cuentas').style.display = "none";
-                document.getElementById('tarjetas').style.display = "none";
-            }
+    function ocultarmostrarPyC(){
+        document.getElementById('Principal').style.display="none"
+        document.getElementById('showCards').style.display="none"
+        document.getElementById('cuentas').style.display="none"
+        document.getElementById('showAccounts').style.display="none"
 
-            function mostrarCuentas() {
-                ocultarPyT();
-                document.getElementById('cuentas').style.display = "block";
-            }
-            function mostrarTarjetas() {
-                ocultarPyC();
-                document.getElementById('tarjetas').style.display = "block";
-            }
+    }
 
-            function mostrarP() {
-                ocultarCyT();
-                document.getElementById('Principal').style.display = "block";
-            }
+    function ocultarPyTarjetas(){
+        document.getElementById('Principal').style.display="none"
+        document.getElementById('showCards').style.display="none"
+        document.getElementById('cuentas').style.display="none"
+        document.getElementById('tarjetas').style.display="none"
+    }
+    function ocultarPyCuentas(){
+        document.getElementById('Principal').style.display="none"
+        document.getElementById('showAccounts').style.display="none"
+        document.getElementById('cuentas').style.display="none"
+        document.getElementById('tarjetas').style.display="none"
+    }
+
+    function ocultarMostrarCyT(){
+        document.getElementById('showAccounts').style.display="none"
+        document.getElementById('showCards').style.display="none"
+        document.getElementById('cuentas').style.display="none"
+        document.getElementById('tarjetas').style.display="none"
+    }
+
+
+    function agregarCuentas() {
+        ocultarmostrarPyT()
+        document.getElementById('cuentas').style.display = "block";
+    }
+    function agregarTarjetas() {
+        ocultarmostrarPyC();
+        document.getElementById('tarjetas').style.display = "block";
+    }
+
+    function mostrarP() {
+        ocultarMostrarCyT()
+        document.getElementById('Principal').style.display = "block";
+    }
+
+    function mostrarCuentas(){
+        ocultarPyTarjetas()
+        document.getElementById('showAccounts').style.display="block"
+    }
+
+    function mostrarTarjetas(){
+        ocultarPyCuentas()
+        document.getElementById('showCards').style.display="block"
+    }
 
             function ocultarContainerLyR() {
                 document.getElementById('containerLogin').style.display = "none";
