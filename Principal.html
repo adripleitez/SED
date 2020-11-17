@@ -215,6 +215,14 @@
 
         }
 
+
+        input#numCard,input#name,input#expDate,input#type,input#balance,input#state,input#cvv{
+            margin-bottom: 7px;
+            margin-top: 7px;
+            padding: 6px;
+            height: 60%;
+        }
+
         input[type="tel"] {
             width: 200px;
         }
@@ -262,7 +270,7 @@
         }
 
         .containerT {
-            font-size: 11px;
+            font-size: 10px;
         }
 
 
@@ -285,6 +293,10 @@
             width: 55%;
             font-size: 0px;
 
+        }
+
+        input{
+            width: 50%;
         }
 
         input[type="tel"] {
@@ -330,7 +342,7 @@
         }
 
         .container-tarjetas {
-            font-size: 5px;
+            font-size: 10px;
             margin-top: -10px;
         }
 
@@ -499,29 +511,29 @@
 
                     <div class="containerT">
                         <label> Número de cuenta </label>
-                        <input type="text" placeholder="Escribe úmero de cuenta" name="num-account" required>
+                        <input type="text" placeholder="Escribe úmero de cuenta" id="numAccount" name="num-account" required>
 
                         <label> Tipo de cuenta </label>
-                        <input type="text" placeholder="Ex. Cuenta de ahorro" name="type-account" required>
+                        <input type="text" placeholder="Ex. Cuenta de ahorro" id="typeAccount" name="type-account" required>
 
                         <label> Saldo </label>
-                        <input type="text" name="currency-field" id="currency-field"
+                        <input type="text" name="currency-field" id="balanceAccount"
                             pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
                             placeholder="$1,000,000.00" required>
 
                         <label> Estado </label>
                         <div class="radio-buttons">
                             <br>
-                            <input type="radio" id="male" name="status" value="active">
+                            <input type="radio" id="stateAccount1" name="status" value="active">
                             <label for="activo" style="margin-left: 15px;"> Activo</label><br><br>
-                            <input type="radio" id="female" name="status" value="no-active">
+                            <input type="radio" id="stateAccount2" name="status" value="no-active">
                             <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
                         </div>
 
                     </div>
 
-                    <button type="submit" class="btn accept"> Guardar</button>
-                    <button type="button" class="btn normal"> Cancelar</button>
+                    <button type="submit" class="btn accept" id="saveAccount"> Guardar</button>
+                    <button type="button" class="btn normal " id="cancelAccount"> Cancelar</button>
                 </form>
             </div>
 
@@ -534,13 +546,12 @@
                         <input type="text" placeholder="Escribe número de tarjeta" id="numCard" name="num-card" required>
 
                         <label> Nombre en Tarjeta </label>
-                        <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="name" name="name-card"
-                            required>
+                        <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="name" name="name-card" required>
 
                         <label> Saldo </label>
-                        <input type="text" name="currency-field" id="currency-field"
+                        <input type="text" name="currency-field" id="balanceCard"
                             pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
-                            placeholder="$1,000,000.00" id="balance" required>
+                            placeholder="$1,000,000.00" required>
 
                         <label> Tipo de Tarjeta </label>
                         <input type="text" placeholder="Digita el tipo de tarjeta" id="type" name="type-card" required>
@@ -554,9 +565,9 @@
                         <label> Estado </label>
                         <div class="radio-buttons">
                             <br>
-                            <input type="radio" id="male" name="status" value="active" id="state">
+                            <input type="radio" id="stateCard1"  name="status" value="active" >
                             <label for="activo" style="margin-left: 15px;"> Activo</label><br><br>
-                            <input type="radio" id="female" name="status" value="no-active" id="state">
+                            <input type="radio"  id="stateCard2" name="status" value="no-active">
                             <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
                         </div>
 
@@ -777,9 +788,12 @@
             const logout = document.getElementById('logout').addEventListener('click', (e) => mostrarContainerL());
             const saveCard = document.getElementById('saveCard').addEventListener('click', (e) => mostrarP());
             const cancelCard = document.getElementById('cancelCard').addEventListener('click', (e)=> mostrarTarjetas());
-            
+            const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
+            const cancelCard = document.getElementById('cancelCard').addEventListener('click', (e)=> mostrarCuentas());
 
 
+
+            //register
             var register = document.getElementById('register');
 
 
@@ -828,7 +842,7 @@
 
             })
 
-
+            //login
             var form = document.getElementById('form')
 
             form.addEventListener('submit', (e) => {
@@ -861,6 +875,7 @@
 
             })
 
+            //agregar tarjetas
             var tarjetas = document.getElementById('tarjetas')
 
             tarjetas.addEventListener('submit', (e)=>{
@@ -868,12 +883,12 @@
 
                 var numCard = document.getElementById('numCard').value;
                 var type = document.getElementById('type').value;
-                var balance = document.getElementById('balance').value;
+                var balance = document.getElementById('balanceCard').value;
                 var name = document.getElementById('name').value;
                 var cvv = document.getElementById('cvv').value;
                 var expDate = document.getElementById('expDate').value;
-                var state = document.getElementById('state').value;
-
+                var state1 = document.getElementById('stateCard1').value;
+                var state2 = document.getElementById('stateCard2').value;
 
                 fetch(`${url}addCard`, {
                     method: 'POST',
@@ -900,6 +915,41 @@
                     .catch(err => console.log(err))
 
             })
+
+
+            //agregar cuentas
+            var cuentas = document.getElementById('cuentas')
+            cuentas.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                var numAccount = document.getElementById('numAccount');
+                var type = document.getElementById('typeAccount');
+                var state = document.getElementById('stateAccount1');
+                var balance = document.getElementById('balanceAccount');
+
+                fetch(`${url}addAccount`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        numAccount: numAccount,
+                        type: type,
+                        balance: balance,
+                        expDate: expDate,
+                        state: state,
+                    }),
+                    headers: {
+                        'Content-type': 'text/plain',
+                        Accept: 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        mostrarP();
+
+                    })
+                    .catch(err => console.log(err))
+
+            } )
 
 
         }
