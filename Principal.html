@@ -295,6 +295,13 @@
 
         }
 
+        input#numCard,input#name,input#expDate,input#type,input#balance,input#state,input#cvv{
+            margin-bottom: 7px;
+            margin-top: 7px;
+            padding: 6px;
+            height: 60%;
+        }
+
         input{
             width: 50%;
         }
@@ -364,6 +371,13 @@
         .containerL {
             width: 55%;
 
+        }
+
+        input#numCard,input#name,input#expDate,input#type,input#balance,input#state,input#cvv{
+            margin-bottom: 7px;
+            margin-top: 7px;
+            padding: 6px;
+            height: 60%;
         }
 
         input[type="tel"] {
@@ -890,6 +904,10 @@
                 var state1 = document.getElementById('stateCard1').value;
                 var state2 = document.getElementById('stateCard2').value;
 
+                function getStateCard(){
+                    return(state1 == false ? state2 : state1);
+                }
+
                 fetch(`${url}addCard`, {
                     method: 'POST',
                     body: JSON.stringify({
@@ -898,7 +916,7 @@
                         balance: balance,
                         expDate: expDate,
                         cvv: cvv,
-                        state: state,
+                        state: getStateCard(),
                         type : type
                     }),
                     headers: {
@@ -924,8 +942,13 @@
 
                 var numAccount = document.getElementById('numAccount');
                 var type = document.getElementById('typeAccount');
-                var state = document.getElementById('stateAccount1');
+                var stateA = document.getElementById('stateAccount1');
+                var stateB = document.getElementById('stateAccoutn2');
                 var balance = document.getElementById('balanceAccount');
+
+                function getStateAccount(){
+                    return(stateA == false ? stateB : stateA);
+                }
 
                 fetch(`${url}addAccount`, {
                     method: 'POST',
@@ -934,7 +957,7 @@
                         type: type,
                         balance: balance,
                         expDate: expDate,
-                        state: state,
+                        state: getStateAccount(),
                     }),
                     headers: {
                         'Content-type': 'text/plain',
