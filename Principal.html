@@ -553,7 +553,7 @@
 
             <div id="tarjetas" class="container-tarjetas">
                 <h2 class="title"> Ingresar Tarjeta de Credito</h2>
-                <form action="" id="" method="post">
+                <form action="" id="tarjetasC" method="post">
 
                     <div class="containerT">
                         <label> Número de Tarjeta </label>
@@ -563,7 +563,7 @@
                         <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="name" name="name-card" required>
 
                         <label> Saldo </label>
-                        <input type="text" name="currency-field" id="balanceCard"
+                        <input type="text" name="currency-field" id="balance"
                             pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
                             placeholder="$1,000,000.00" required>
 
@@ -687,7 +687,6 @@
                     </tr>
                 </table>
             </div>
-
         </div>
     </div>
     <script>
@@ -800,9 +799,9 @@
             const sideAccount = document.getElementById('sideAccount').addEventListener('click', (e) => agregarCuentas());
             const sideCard = document.getElementById('sideCard').addEventListener('click', (e) => agregarTarjetas());
             const logout = document.getElementById('logout').addEventListener('click', (e) => mostrarContainerL());
-            const saveCard = document.getElementById('saveCard').addEventListener('click', (e) => mostrarP());
-            const cancelCard = document.getElementById('cancelCard').addEventListener('click', (e)=> mostrarTarjetas());
-            const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
+            //const saveCard = document.getElementById('saveCard').addEventListener('click', (e) => mostrarP());
+            //const cancelCard = document.getElementById('cancelCard').addEventListener('click', (e)=> mostrarTarjetas());
+           // const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
             //const cancelCard = document.getElementById('cancelCard').addEventListener('click', (e)=> mostrarCuentas());
 
 
@@ -890,14 +889,14 @@
             })
 
             //agregar tarjetas
-            var tarjetas = document.getElementById('tarjetas')
+            var tarjetas = document.getElementById('tarjetasC')
 
             tarjetas.addEventListener('submit', (e)=>{
                 e.preventDefault();
 
                 var numCard = document.getElementById('numCard').value;
                 var type = document.getElementById('type').value;
-                var balance = document.getElementById('balanceCard').value;
+                var balance = document.getElementById('balance').value;
                 var name = document.getElementById('name').value;
                 var cvv = document.getElementById('cvv').value;
                 var expDate = document.getElementById('expDate').value;
@@ -916,7 +915,7 @@
                         balance: balance,
                         expDate: expDate,
                         cvv: cvv,
-                        state: getStateCard(),
+                        state: getStateCard,
                         type : type
                     }),
                     headers: {
@@ -940,11 +939,11 @@
             cuentas.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                var numAccount = document.getElementById('numAccount');
-                var type = document.getElementById('typeAccount');
-                var stateA = document.getElementById('stateAccount1');
-                var stateB = document.getElementById('stateAccoutn2');
-                var balance = document.getElementById('balanceAccount');
+                var numAccount = document.getElementById('numAccount').value;
+                var type = document.getElementById('typeAccount').value;
+                var stateA = document.getElementById('stateAccount1').value;
+                var stateB = document.getElementById('stateAccoutn2').value;
+                var balance = document.getElementById('balanceAccount').value;
 
                 function getStateAccount(){
                     return(stateA == false ? stateB : stateA);
