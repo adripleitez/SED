@@ -531,15 +531,15 @@
                         <input type="text" placeholder="Ex. Cuenta de ahorro" id="typeAccount" name="type-account" required>
 
                         <label> Saldo </label>
-                        <input type="number" name="currency-field" id="balanceAccount" value="" data-type="currency"
+                        <input type="number" step=".01" name="currency-field" id="balanceAccount" value="" data-type="currency"
                             placeholder="$1,000,000.00" required>
 
                         <label> Estado </label>
                         <div class="radio-buttons">
                             <br>
-                            <input type="radio" id="stateAccount1" name="status" value="active">
+                            <input type="radio" id="stateAccount1" name="status1">
                             <label for="activo" style="margin-left: 15px;"> Activo</label><br><br>
-                            <input type="radio" id="stateAccount2" name="status" value="no-active">
+                            <input type="radio" id="stateAccount2" name="status1">
                             <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
                         </div>
 
@@ -569,7 +569,7 @@
                         <input type="text" placeholder="Digita el tipo de tarjeta" id="type" name="type-card" required>
 
                         <label> Fecha de vencimiento </label>
-                        <input type="date" placeholder="Digita el tipo de tarjeta"  id="expDate" min="2020-01-01" max="2021-12-31">
+                        <input type="date"  id="expDate" min="2020-01-01" max="2025-12-31" required>
 
                         <label> cvv </label>
                         <input type="text" placeholder="Digita el cvv" name="type-cvv" id="cvv" required>
@@ -916,6 +916,7 @@
             const sideCard = document.getElementById('sideCard').addEventListener('click', (e) => agregarTarjetas());
             const logout = document.getElementById('logout').addEventListener('click', (e) => mostrarContainerL());
             const cancelCard1 = document.getElementById('cancelCard1').addEventListener('click', (e)=> mostrarTarjetas());
+            const cancelAccount1 = document.getElementById('cancelAccount1').addEventListener('click', (e)=> mostrarCuentas());
            // const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
 
             //botones del formulario (borrar,eliminar)
@@ -1056,14 +1057,14 @@
             cuentas.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                var numAccount = document.getElementById('numAccount').value;
-                var type = document.getElementById('typeAccount').value;
-                var stateA = document.getElementById('stateAccount1').value;
-                var stateB = document.getElementById('stateAccount2').value;
-                var balance = document.getElementById('balanceAccount').value;
+                let idUser =JSON.parse(window.sessionStorage.getItem('user')).id;
+                let numAccount = document.getElementById('numAccount').value;
+                let type = document.getElementById('typeAccount').value;
+                let state = document.getElementsByName('status1')
+                let balance = document.getElementById('balanceAccount').value;
 
                 function getStateAccount(){
-                    return(stateA == false ? stateB : stateA);
+                    return(state[0].checked ? true : false);
                 }
 
                 fetch(`${url}addAccount`, {
@@ -1074,6 +1075,7 @@
                         balance: balance,
                         expDate: expDate,
                         state: getStateAccount(),
+                        client: idUser
                     }),
                     headers: {
                         'Content-type': 'text/plain',
