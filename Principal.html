@@ -202,11 +202,16 @@
         align-items: center;
     }
 
-    @media screen and (min-width: 1280px) and (max-width: 1441px) {
+    @media screen and (min-width: 1280px) {
 
-        .containerR,.containerPrincipal,.container-cuentas,.container-tarjetas,.container-tableA,.container-tableC{
-        display: none;
-    }
+        .containerR,
+        .containerPrincipal,
+        .container-cuentas,
+        .container-tarjetas,
+        .container-tableA,
+        .container-tableC {
+            display: none;
+        }
 
         .containerR,
         .containerL {
@@ -216,7 +221,14 @@
         }
 
 
-        input#numCard,input#name,input#nameCard1,input#expDate,input#type,input#balance,input#state,input#cvv{
+        input#numCard,
+        input#name,
+        input#nameCard1,
+        input#expDate,
+        input#type,
+        input#balance,
+        input#state,
+        input#cvv {
             margin-bottom: 7px;
             margin-top: 7px;
             padding: 6px;
@@ -284,9 +296,14 @@
 
     @media screen and (min-width: 1024px) and (max-width: 1280px) {
 
-        .containerR,.containerPrincipal,.container-cuentas,.container-tarjetas,.container-tableA,.container-tableC{
-        display: none;
-    }
+        .containerR,
+        .containerPrincipal,
+        .container-cuentas,
+        .container-tarjetas,
+        .container-tableA,
+        .container-tableC {
+            display: none;
+        }
 
         .containerR,
         .containerL {
@@ -295,14 +312,21 @@
 
         }
 
-        input#numCard,input#name,input#nameCard1,input#expDate,input#type,input#balance,input#state,input#cvv{
+        input#numCard,
+        input#name,
+        input#nameCard1,
+        input#expDate,
+        input#type,
+        input#balance,
+        input#state,
+        input#cvv {
             margin-bottom: 7px;
             margin-top: 7px;
             padding: 6px;
             height: 60%;
         }
 
-        input{
+        input {
             width: 50%;
         }
 
@@ -363,9 +387,14 @@
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-        .containerR,.containerPrincipal,.container-cuentas,.container-tarjetas,.container-tableA,.container-tableC{
-        display: none;
-    }
+        .containerR,
+        .containerPrincipal,
+        .container-cuentas,
+        .container-tarjetas,
+        .container-tableA,
+        .container-tableC {
+            display: none;
+        }
 
         .containerR,
         .containerL {
@@ -373,7 +402,13 @@
 
         }
 
-        input#numCard,input#name,input#expDate,input#type,input#balance,input#state,input#cvv{
+        input#numCard,
+        input#name,
+        input#expDate,
+        input#type,
+        input#balance,
+        input#state,
+        input#cvv {
             margin-bottom: 7px;
             margin-top: 7px;
             padding: 6px;
@@ -435,7 +470,7 @@
     }
 </style>
 
-<body style="background-color: whitesmoke;" >
+<body style="background-color: whitesmoke;">
 
     <div class="containerLogin" id="containerLogin">
 
@@ -511,8 +546,8 @@
         </header>
 
         <div class="sidenav">
-            <a  id="sidePrincipal" href="#Principal">Principal </a>
-            <a  id="sideAccount" href="#Cuentas">Cuentas Bancarias </a>
+            <a id="sidePrincipal" href="#Principal">Principal </a>
+            <a id="sideAccount" href="#Cuentas">Cuentas Bancarias </a>
             <a id="sideCard" href="#Tarjeta">Tarjetas de Crédito</a>
             <a id="logout">Cerrar Sesión</a>
         </div>
@@ -525,14 +560,16 @@
 
                     <div class="containerT">
                         <label> Número de cuenta </label>
-                        <input type="text" placeholder="Escribe úmero de cuenta" id="numAccount" name="num-account" required>
+                        <input type="text" placeholder="Escribe úmero de cuenta" id="numAccount" name="num-account"
+                            required>
 
                         <label> Tipo de cuenta </label>
-                        <input type="text" placeholder="Ex. Cuenta de ahorro" id="typeAccount" name="type-account" required>
+                        <input type="text" placeholder="Ex. Cuenta de ahorro" id="typeAccount" name="type-account"
+                            required>
 
                         <label> Saldo </label>
-                        <input type="number" step=".01" name="currency-field" id="balanceAccount" value="" data-type="currency"
-                            placeholder="$1,000,000.00" required>
+                        <input type="number" step=".01" name="currency-field" id="balanceAccount" value=""
+                            data-type="currency" placeholder="$1,000,000.00" required>
 
                         <label> Estado </label>
                         <div class="radio-buttons">
@@ -556,10 +593,12 @@
 
                     <div class="containerT">
                         <label> Número de Tarjeta </label>
-                        <input type="text" placeholder="Escribe número de tarjeta" id="numCard" name="num-card" required>
+                        <input type="text" placeholder="Escribe número de tarjeta" id="numCard" name="num-card"
+                            required>
 
                         <label> Nombre en Tarjeta </label>
-                        <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="nameCard1" name="name-card" required>
+                        <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="nameCard1"
+                            name="name-card" required>
 
                         <label> Saldo </label>
                         <input type="number" name="currency-field" step=".01" id="balance" value="" data-type="currency"
@@ -569,7 +608,7 @@
                         <input type="text" placeholder="Digita el tipo de tarjeta" id="type" name="type-card" required>
 
                         <label> Fecha de vencimiento </label>
-                        <input type="date"  id="expDate" min="2020-01-01" max="2025-12-31" required>
+                        <input type="date" id="expDate" min="2020-01-01" max="2025-12-31" required>
 
                         <label> cvv </label>
                         <input type="text" placeholder="Digita el cvv" name="type-cvv" id="cvv" required>
@@ -577,7 +616,7 @@
                         <label> Estado </label>
                         <div class="radio-buttons">
                             <br>
-                            <input type="radio" name="status2" value="true" >
+                            <input type="radio" name="status2" value="true">
                             <label for="activo" style="margin-left: 15px;"> Activo</label><br><br>
                             <input type="radio" name="status2" value="false">
                             <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
@@ -591,17 +630,17 @@
             </div>
 
             <div id="Principal" class="container-table">
-                
-                <button type="submit" id="showAccount" class="btn accept" > Mostrar Cuentas</button>
+
+                <button type="submit" id="showAccount" class="btn accept"> Mostrar Cuentas</button>
                 <button type="button" id="showCard" class="btn normal"> Mostrar Tarjetas</button>
             </div>
 
             <div id="showAccounts" class="container-tableA">
                 <h2 class="title"> Cuentas</h2>
                 <div class="header-add">
-                    <button type="button" id="addCount" class="btn accept" > Agregar Nueva Cuenta</button>
+                    <button type="button" id="addCount" class="btn accept"> Agregar Nueva Cuenta</button>
                 </div>
-    
+
                 <table>
                     <tr>
                         <th>Company</th>
@@ -647,9 +686,9 @@
             <div id="showCards" class="container-tableC">
                 <h2 class="title"> Tarjetas</h2>
                 <div class="header-add">
-                    <button type="button" id="addCard" class="btn accept" > Agregar Nueva Tarjeta</button>
+                    <button type="button" id="addCard" class="btn accept"> Agregar Nueva Tarjeta</button>
                 </div>
-    
+
                 <table>
                     <tr>
                         <th>Company</th>
@@ -703,28 +742,31 @@
                 </table>
             </div>
 
-            
+
             <div id="updateCard" class="container-tarjetas">
                 <h2 class="title"> Actualizar Tarjetas</h2>
                 <form action="" id="updateC" method="post">
 
                     <div class="containerT">
                         <label> Número de Tarjeta </label>
-                        <input type="text" placeholder="Escribe número de tarjeta" id="numUpCard" name="num-card" required>
+                        <input type="text" placeholder="Escribe número de tarjeta" id="numUpCard" name="num-card"
+                            required>
 
                         <label> Nombre en Tarjeta </label>
-                        <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="nameCard2" name="name-card" required>
+                        <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="nameCard2"
+                            name="name-card" required>
 
                         <label> Saldo </label>
-                        <input type="text" name="currency-field" id="balanceUpCard"
-                            pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
-                            placeholder="$1,000,000.00" required>
+                        <input type="text" name="currency-field" id="balanceUpCard" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$"
+                            value="" data-type="currency" placeholder="$1,000,000.00" required>
 
                         <label> Tipo de Tarjeta </label>
-                        <input type="text" placeholder="Digita el tipo de tarjeta" id="typeUpCard" name="type-card" required>
+                        <input type="text" placeholder="Digita el tipo de tarjeta" id="typeUpCard" name="type-card"
+                            required>
 
                         <label> Fecha de vencimiento </label>
-                        <input type="date" placeholder="Digita el tipo de tarjeta"  id="expDateUpCard" min="2020-01-01" max="2021-12-31">
+                        <input type="date" placeholder="Digita el tipo de tarjeta" id="expDateUpCard" min="2020-01-01"
+                            max="2021-12-31">
 
                         <label> cvv </label>
                         <input type="text" placeholder="Digita el cvv" name="type-cvv" id="cvvUpCard" required>
@@ -732,9 +774,9 @@
                         <label> Estado </label>
                         <div class="radio-buttons">
                             <br>
-                            <input type="radio" id="stateUpCard1"  name="status" value="active" >
+                            <input type="radio" id="stateUpCard1" name="status" value="active">
                             <label for="activo" style="margin-left: 15px;"> Activo</label><br><br>
-                            <input type="radio"  id="stateUpCard2" name="status" value="no-active">
+                            <input type="radio" id="stateUpCard2" name="status" value="no-active">
                             <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
                         </div>
 
@@ -751,10 +793,12 @@
 
                     <div class="containerT">
                         <label> Número de cuenta </label>
-                        <input type="text" placeholder="Escribe úmero de cuenta" id="numUpAccount" name="num-account" required>
+                        <input type="text" placeholder="Escribe úmero de cuenta" id="numUpAccount" name="num-account"
+                            required>
 
                         <label> Tipo de cuenta </label>
-                        <input type="text" placeholder="Ex. Cuenta de ahorro" id="typeUpAccount" name="type-account" required>
+                        <input type="text" placeholder="Ex. Cuenta de ahorro" id="typeUpAccount" name="type-account"
+                            required>
 
                         <label> Saldo </label>
                         <input type="text" name="currency-field" id="balanceUpAccount"
@@ -782,97 +826,113 @@
     <script>
         window.onload = function () {
 
-    function ocultarAgregarCyT() {
-        document.getElementById('cuentas').style.display = "none";
-        document.getElementById('tarjetas').style.display = "none";
-    }
+            function ocultarAgregarCyT() {
+                document.getElementById('cuentas').style.display = "none";
+                document.getElementById('tarjetas').style.display = "none";
+            }
 
-    function ocultarmostrarPyT(){
-        document.getElementById('Principal').style.display="none"
-        document.getElementById('showCards').style.display="none"
-        document.getElementById('tarjetas').style.display="none"
-        document.getElementById('showAccounts').style.display="none"
-    }
+            function ocultarmostrarPyT() {
+                document.getElementById('Principal').style.display = "none"
+                document.getElementById('showCards').style.display = "none"
+                document.getElementById('tarjetas').style.display = "none"
+                document.getElementById('showAccounts').style.display = "none"
+            }
 
-    function ocultarmostrarPyC(){
-        document.getElementById('Principal').style.display="none"
-        document.getElementById('showCards').style.display="none"
-        document.getElementById('cuentas').style.display="none"
-        document.getElementById('showAccounts').style.display="none"
+            function ocultarmostrarPyC() {
+                document.getElementById('Principal').style.display = "none"
+                document.getElementById('showCards').style.display = "none"
+                document.getElementById('cuentas').style.display = "none"
+                document.getElementById('showAccounts').style.display = "none"
 
-    }
+            }
 
-    function ocultarPyTarjetas(){
-        document.getElementById('Principal').style.display="none"
-        document.getElementById('showCards').style.display="none"
-        document.getElementById('cuentas').style.display="none"
-        document.getElementById('tarjetas').style.display="none"
-    }
-    function ocultarPyCuentas(){
-        document.getElementById('Principal').style.display="none"
-        document.getElementById('showAccounts').style.display="none"
-        document.getElementById('cuentas').style.display="none"
-        document.getElementById('tarjetas').style.display="none"
-    }
+            function ocultarPyTarjetas() {
+                document.getElementById('Principal').style.display = "none"
+                document.getElementById('showCards').style.display = "none"
+                document.getElementById('cuentas').style.display = "none"
+                document.getElementById('tarjetas').style.display = "none"
+            }
+            function ocultarPyCuentas() {
+                document.getElementById('Principal').style.display = "none"
+                document.getElementById('showAccounts').style.display = "none"
+                document.getElementById('cuentas').style.display = "none"
+                document.getElementById('tarjetas').style.display = "none"
+            }
 
-    function ocultarMostrarCyT(){
-        document.getElementById('showAccounts').style.display="none"
-        document.getElementById('showCards').style.display="none"
-        document.getElementById('cuentas').style.display="none"
-        document.getElementById('tarjetas').style.display="none"
-    }
+            function ocultarMostrarCyT() {
+                document.getElementById('showAccounts').style.display = "none"
+                document.getElementById('showCards').style.display = "none"
+                document.getElementById('cuentas').style.display = "none"
+                document.getElementById('tarjetas').style.display = "none"
+            }
 
-    function ocultarUpAyC(){
-        document.getElementById('accountUp').style.display="none";
-        document.getElementById('updateCard').style.display="none";
-    }
+            function ocultarUpAyC() {
+                document.getElementById('accountUp').style.display = "none";
+                document.getElementById('updateCard').style.display = "none";
+            }
 
-    function mostrarP() {
-        ocultarAgregarCyT();
-        ocultarMostrarCyT();
-        ocultarUpAyC();
-        document.getElementById('Principal').style.display = "block";
-    }
+            function mostrarP() {
+                ocultarAgregarCyT();
+                ocultarMostrarCyT();
+                ocultarUpAyC();
+                document.getElementById('Principal').style.display = "block";
+            }
 
-    function showCardUp(){
-        ocultarPyCuentas();
-        ocultarmostrarPyC()
-        document.getElementById('updateCard').style.display="block";
-    }
+            function showCardUp() {
+                ocultarPyCuentas();
+                ocultarmostrarPyC()
+                document.getElementById('updateCard').style.display = "block";
+            }
 
-    function showAccountUp(){
-        ocultarPyTarjetas();
-        ocultarmostrarPyT();
-        document.getElementById('accountUp').style.display="block";            
-    }
-
-    
-    function agregarCuentas() {
-        ocultarmostrarPyT()
-        ocultarUpAyC();
-        document.getElementById('cuentas').style.display = "block";
-    }
-    function agregarTarjetas() {
-        ocultarmostrarPyC();
-        ocultarUpAyC();
-        document.getElementById('tarjetas').style.display = "block";
-    }
+            function showAccountUp() {
+                ocultarPyTarjetas();
+                ocultarmostrarPyT();
+                document.getElementById('accountUp').style.display = "block";
+            }
 
 
-    function mostrarCuentas(){
-        ocultarPyTarjetas()
-        ocultarUpAyC();
-        document.getElementById('showAccounts').style.display="block"
-    }
-
-    
-    function mostrarTarjetas(){
-        ocultarUpAyC();
-        ocultarPyCuentas();
-        document.getElementById('showCards').style.display="block";
-    }
+            function agregarCuentas() {
+                ocultarmostrarPyT()
+                ocultarUpAyC();
+                document.getElementById('cuentas').style.display = "block";
+            }
+            function agregarTarjetas() {
+                ocultarmostrarPyC();
+                ocultarUpAyC();
+                document.getElementById('tarjetas').style.display = "block";
+            }
 
 
+            function mostrarCuentas() {
+                ocultarPyTarjetas()
+                ocultarUpAyC();
+                document.getElementById('showAccounts').style.display = "block"
+            }
+
+            function cargarTarjetas() {
+
+                let idUser = JSON.parse(window.sessionStorage.getItem('user')).id;
+
+                fetch(`${url}allCards?client=${idUser}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-type': 'text/plain',
+                        Accept: 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+                    .catch(err => console.log(err))
+            }
+
+            function mostrarTarjetas() {
+                cargarTarjetas();
+                ocultarUpAyC();
+                ocultarPyCuentas();
+                document.getElementById('showCards').style.display = "block";
+            }
             function ocultarContainerLyR() {
                 document.getElementById('containerLogin').style.display = "none";
                 document.getElementById('containerR').style.display = "none";
@@ -903,8 +963,7 @@
                 document.getElementById('containerR').style.display = "block"
             }
 
-            const url = 'http://localhost:3000/'
-
+            const url = `http://localhost:3000/`;
             const toRegister = document.getElementById('toRegister').addEventListener('click', (e) => mostrarContainerR());
             const toLogin = document.getElementById('toLogin').addEventListener('click', (e) => mostrarContainerL());
             const showAccount = document.getElementById('showAccount').addEventListener('click', (e) => mostrarCuentas());
@@ -915,12 +974,12 @@
             const sideAccount = document.getElementById('sideAccount').addEventListener('click', (e) => agregarCuentas());
             const sideCard = document.getElementById('sideCard').addEventListener('click', (e) => agregarTarjetas());
             const logout = document.getElementById('logout').addEventListener('click', (e) => mostrarContainerL());
-            const cancelCard1 = document.getElementById('cancelCard1').addEventListener('click', (e)=> mostrarTarjetas());
-            const cancelAccount1 = document.getElementById('cancelAccount1').addEventListener('click', (e)=> mostrarCuentas());
-           // const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
+            const cancelCard1 = document.getElementById('cancelCard1').addEventListener('click', (e) => mostrarTarjetas());
+            const cancelAccount1 = document.getElementById('cancelAccount1').addEventListener('click', (e) => mostrarCuentas());
+            // const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
 
             //botones del formulario (borrar,eliminar)
-            const e1 = document.getElementById('e1').addEventListener('click',(e) => showCardUp())
+            const e1 = document.getElementById('e1').addEventListener('click', (e) => showCardUp())
             const e = document.getElementById('e').addEventListener('click', (e) => showAccountUp())
 
 
@@ -984,7 +1043,7 @@
                 //De momento dejalo sin el body
                 fetch(`${url}login`, {
                     method: 'POST',
-                    body: JSON.stringify({username:username, password: password}),
+                    body: JSON.stringify({ username: username, password: password }),
                     headers: {
                         'Content-Type': 'text/plain',
                         Accept: 'application/json'
@@ -995,7 +1054,7 @@
                     })
                     .then(data => {
                         console.log(data);
-                        window.sessionStorage.setItem('user',JSON.stringify({name: data.name, id: data._id}))
+                        window.sessionStorage.setItem('user', JSON.stringify({ name: data.name, id: data._id }))
                         document.getElementById('welcome').textContent = `Welcome ${data.name}`
                         ocultarContainerLyR();
                         mostrarContainerP();
@@ -1008,10 +1067,10 @@
             //agregar tarjetas
             var tarjetas = document.getElementById('tarjetasC')
 
-            tarjetas.addEventListener('submit', (e)=>{
+            tarjetas.addEventListener('submit', (e) => {
                 e.preventDefault();
-                
-                let idUser =JSON.parse(window.sessionStorage.getItem('user')).id;
+
+                let idUser = JSON.parse(window.sessionStorage.getItem('user')).id;
                 let numCard = document.getElementById('numCard').value;
                 let type = document.getElementById('type').value;
                 let balance = document.getElementById('balance').value;
@@ -1020,8 +1079,8 @@
                 let expDate = document.getElementById('expDate').value;
                 let state = document.getElementsByName('status2');
 
-                function getStateCard(){
-                    return(state[0].checked ? true : false);
+                function getStateCard() {
+                    return (state[0].checked ? true : false);
                 }
 
                 fetch(`${url}addCard`, {
@@ -1033,7 +1092,7 @@
                         expDate: expDate,
                         cvv: cvv,
                         state: getStateCard(),
-                        type : type,
+                        type: type,
                         client: idUser
                     }),
                     headers: {
@@ -1057,14 +1116,14 @@
             cuentas.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                let idUser =JSON.parse(window.sessionStorage.getItem('user')).id;
+                let idUser = JSON.parse(window.sessionStorage.getItem('user')).id;
                 let numAccount = document.getElementById('numAccount').value;
                 let type = document.getElementById('typeAccount').value;
                 let state = document.getElementsByName('status1')
                 let balance = document.getElementById('balanceAccount').value;
 
-                function getStateAccount(){
-                    return(state[0].checked ? true : false);
+                function getStateAccount() {
+                    return (state[0].checked ? true : false);
                 }
 
                 fetch(`${url}addAccount`, {
@@ -1089,10 +1148,7 @@
 
                     })
                     .catch(err => console.log(err))
-
-            } )
-
-
+            })
         }
     </script>
 </body>
