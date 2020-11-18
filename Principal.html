@@ -521,7 +521,7 @@
         <div class="side-container">
             <div id="cuentas" class="container-cuentas">
                 <h2 class="title"> Ingresar Cuenta Bancaria</h2>
-                <form action="" method="post">
+                <form action="" id="cuentasC" method="post">
 
                     <div class="containerT">
                         <label> Número de cuenta </label>
@@ -609,11 +609,14 @@
                         <th>Company</th>
                         <th>Contact</th>
                         <th>Country</th>
+                        <th>Accion</th>
                     </tr>
                     <tr>
                         <td>Alfreds Futterkiste</td>
                         <td>Maria Anders</td>
                         <td>Germany</td>
+                        <td><a id="e" href="#Editar">Editar</a>
+                            <a id="d" href="#Eliminar">Eliminar</td>
                     </tr>
                     <tr>
                         <td>Centro comercial Moctezuma</td>
@@ -654,39 +657,128 @@
                         <th>Company</th>
                         <th>Contact</th>
                         <th>Country</th>
+                        <th>Accion</th>
                     </tr>
                     <tr>
                         <td>Alfreds Futterkiste</td>
                         <td>Maria Anders</td>
                         <td>Germany</td>
+                        <td><a id="e1" href="#Editar">Editar</a>
+                            <a id="d1" href="#Eliminar">Eliminar</td>
+
                     </tr>
                     <tr>
                         <td>Centro comercial Moctezuma</td>
                         <td>Francisco Chang</td>
                         <td>Mexico</td>
+                        <td><a id="e2" href="#Editar">Editar</a>
+                            <a id="d2" href="#Eliminar">Eliminar</td>
                     </tr>
                     <tr>
                         <td>Ernst Handel</td>
                         <td>Roland Mendel</td>
                         <td>Austria</td>
+                        <td><a id="e3" href="#Editar">Editar</a>
+                            <a id="d3" href="#Eliminar">Eliminar</td>
                     </tr>
                     <tr>
                         <td>Island Trading</td>
                         <td>Helen Bennett</td>
                         <td>UK</td>
+                        <th><a id="e4" href="#Editar">Editar</a>
+                            <a id="d4" href="#Eliminar">Eliminar</th>
                     </tr>
                     <tr>
                         <td>Laughing Bacchus Winecellars</td>
                         <td>Yoshi Tannamuri</td>
                         <td>Canada</td>
+                        <td><a id="e5" href="#Editar">Editar</a>
+                            <a id="d5" href="#Eliminar">Eliminar</td>
                     </tr>
                     <tr>
                         <td>Magazzini Alimentari Riuniti</td>
                         <td>Giovanni Rovelli</td>
                         <td>Italy</td>
+                        <td><a id="e1" href="#Editar">Editar</a>
+                            <a id="d1" href="#Eliminar">Eliminar</td>
                     </tr>
                 </table>
             </div>
+
+            
+            <div id="updateCard" class="container-tarjetas">
+                <h2 class="title"> Actualiza Tarjeta de Credito</h2>
+                <form action="" id="updateC" method="post">
+
+                    <div class="containerT">
+                        <label> Número de Tarjeta </label>
+                        <input type="text" placeholder="Escribe número de tarjeta" id="numUpCard" name="num-card" required>
+
+                        <label> Nombre en Tarjeta </label>
+                        <input type="text" placeholder="Escribe el nombre dentro de la tarjeta" id="name" name="name-card" required>
+
+                        <label> Saldo </label>
+                        <input type="text" name="currency-field" id="balanceUpCard"
+                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                            placeholder="$1,000,000.00" required>
+
+                        <label> Tipo de Tarjeta </label>
+                        <input type="text" placeholder="Digita el tipo de tarjeta" id="typeUpCard" name="type-card" required>
+
+                        <label> Fecha de vencimiento </label>
+                        <input type="date" placeholder="Digita el tipo de tarjeta"  id="expDateUpCard" min="2020-01-01" max="2021-12-31">
+
+                        <label> cvv </label>
+                        <input type="text" placeholder="Digita el cvv" name="type-cvv" id="cvvUpCard" required>
+
+                        <label> Estado </label>
+                        <div class="radio-buttons">
+                            <br>
+                            <input type="radio" id="stateUpCard1"  name="status" value="active" >
+                            <label for="activo" style="margin-left: 15px;"> Activo</label><br><br>
+                            <input type="radio"  id="stateUpCard2" name="status" value="no-active">
+                            <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn accept" id="saveUpCard"> Guardar</button>
+                    <button type="button" class="btn normal" id="cancelCard"> Cancelar</button>
+                </form>
+            </div>
+
+            <div id="accountUp" class="container-cuentas">
+                <h2 class="title"> Actualiza Cuenta Bancaria</h2>
+                <form action="" id="accountUp" method="post">
+
+                    <div class="containerT">
+                        <label> Número de cuenta </label>
+                        <input type="text" placeholder="Escribe úmero de cuenta" id="numUpAccount" name="num-account" required>
+
+                        <label> Tipo de cuenta </label>
+                        <input type="text" placeholder="Ex. Cuenta de ahorro" id="typeUpAccount" name="type-account" required>
+
+                        <label> Saldo </label>
+                        <input type="text" name="currency-field" id="balanceUpAccount"
+                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                            placeholder="$1,000,000.00" required>
+
+                        <label> Estado </label>
+                        <div class="radio-buttons">
+                            <br>
+                            <input type="radio" id="stateUpAccount1" name="status" value="active">
+                            <label for="activo" style="margin-left: 15px;"> Activo</label><br><br>
+                            <input type="radio" id="stateUpAccount2" name="status" value="no-active">
+                            <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn accept" id="saveUpAccount"> Guardar</button>
+                    <button type="button" class="btn normal " id="cancelAccount"> Cancelar</button>
+                </form>
+            </div>
+
         </div>
     </div>
     <script>
@@ -732,30 +824,56 @@
         document.getElementById('tarjetas').style.display="none"
     }
 
+    function ocultarUpAyC(){
+        document.getElementById('accountUp').style.display="none";
+        document.getElementById('updateCard').style.display="none";
+    }
 
+    function mostrarP() {
+        ocultarAgregarCyT();
+        ocultarMostrarCyT();
+        ocultarUpAyC();
+        document.getElementById('Principal').style.display = "block";
+    }
+
+    function showCardUp(){
+        ocultarPyCuentas();
+        ocultarmostrarPyC()
+        document.getElementById('updateCard').style.display="block";
+    }
+
+    function showAccountUp(){
+        ocultarPyTarjetas();
+        ocultarmostrarPyT();
+        document.getElementById('accountUp').style.display="block";            
+    }
+
+    
     function agregarCuentas() {
         ocultarmostrarPyT()
+        ocultarUpAyC();
         document.getElementById('cuentas').style.display = "block";
     }
     function agregarTarjetas() {
         ocultarmostrarPyC();
+        ocultarUpAyC();
         document.getElementById('tarjetas').style.display = "block";
     }
 
-    function mostrarP() {
-        ocultarMostrarCyT()
-        document.getElementById('Principal').style.display = "block";
-    }
 
     function mostrarCuentas(){
         ocultarPyTarjetas()
+        ocultarUpAyC();
         document.getElementById('showAccounts').style.display="block"
     }
 
+    
     function mostrarTarjetas(){
-        ocultarPyCuentas()
-        document.getElementById('showCards').style.display="block"
+        ocultarUpAyC();
+        ocultarPyCuentas();
+        document.getElementById('showCards').style.display="block";
     }
+
 
             function ocultarContainerLyR() {
                 document.getElementById('containerLogin').style.display = "none";
@@ -804,6 +922,10 @@
            // const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
             //const cancelCard = document.getElementById('cancelCard').addEventListener('click', (e)=> mostrarCuentas());
 
+            //botones del formulario (borrar,eliminar)
+            const e1 = document.getElementById('e1').addEventListener('click',(e) => showCardUp())
+            const e = document.getElementById('e').addEventListener('click', (e) => showAccountUp())
+
 
 
             //register
@@ -814,9 +936,6 @@
                 e.preventDefault();
                 mostrarContainerL();
             });
-
-
-
 
             register.addEventListener('submit', (e) => {
 
@@ -935,14 +1054,14 @@
 
 
             //agregar cuentas
-            var cuentas = document.getElementById('cuentas')
+            var cuentas = document.getElementById('cuentasC')
             cuentas.addEventListener('submit', (e) => {
                 e.preventDefault();
 
                 var numAccount = document.getElementById('numAccount').value;
                 var type = document.getElementById('typeAccount').value;
                 var stateA = document.getElementById('stateAccount1').value;
-                var stateB = document.getElementById('stateAccoutn2').value;
+                var stateB = document.getElementById('stateAccount2').value;
                 var balance = document.getElementById('balanceAccount').value;
 
                 function getStateAccount(){
