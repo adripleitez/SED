@@ -67,7 +67,6 @@
     }
 
     .containerR,
-    .containerRegUser,
     .containerPrincipal {
         display: none;
     }
@@ -206,9 +205,7 @@
     @media screen and (min-width: 1280px) {
 
         .containerR,
-        .containerRegUser,
         .containerPrincipal,
-        .containerPrincipalUser,
         .container-cuentas,
         .container-tarjetas,
         .container-tableA,
@@ -217,7 +214,6 @@
         }
 
         .containerR,
-        .containerRegUser,
         .containerL {
             width: 50%;
             font-size: 10px;
@@ -226,7 +222,6 @@
 
 
         input#numCard,
-        input#name,
         input#nameCard1,
         input#expDate,
         input#type,
@@ -301,9 +296,7 @@
     @media screen and (min-width: 1024px) and (max-width: 1280px) {
 
         .containerR,
-        .containerRegUser,
         .containerPrincipal,
-        .containerPrincipalUser,
         .container-cuentas,
         .container-tarjetas,
         .container-tableA,
@@ -312,7 +305,6 @@
         }
 
         .containerR,
-        .containerRegUser,
         .containerL {
             width: 55%;
             font-size: 0px;
@@ -395,9 +387,7 @@
     @media screen and (min-width: 768px) and (max-width: 1024px) {
 
         .containerR,
-        .containerRegUser,
         .containerPrincipal,
-        .containerPrincipalUser,
         .container-cuentas,
         .container-tarjetas,
         .container-tableA,
@@ -406,7 +396,6 @@
         }
 
         .containerR,
-        .containerRegUser,
         .containerL {
             width: 55%;
 
@@ -506,42 +495,7 @@
 
     <div class="containerR" id="containerR" display="none">
 
-        <h2 class="title"> Registrarse Cliente</h2>
-        <hr>
-
-        <form id="registerClient" action="" method="post">
-
-            <div class="container-principal">
-                <label> Nombre </label>
-                <input type="text" id="nameClient" placeholder="Escribe tu nombre" name="name" required>
-
-                <label> Correo </label>
-                <input type="text" id="emailClient" placeholder="Escribe tu correo electrónico" name="email" required>
-
-                <div class="small-input">
-                    <div>
-                        <label> DUI </label>
-                        <input type="tel" id="duiClient" placeholder="Digita tu número de DUI" name="dui" required>
-                    </div>
-
-                    <div>
-                        <label> Teléfono </label>
-                        <input type="tel" id="telClient" placeholder="2222-9999" name="cellphone" pattern="[0-9]{4}-[0-9]{4}"
-                            required>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="btn accept"> Registrarse</button>
-            <button type="button" id="toLogin" class="btn normal"> Iniciar Sesión</button>
-        </form>
-
-    </div>
-
-
-    <div class="containerRegUser" id="containerRegUser" display="none">
-
-        <h2 class="title"> Registrarse Usuario</h2>
+        <h2 class="title"> Registrarse</h2>
         <hr>
 
         <form id="register" action="" method="post">
@@ -559,6 +513,8 @@
                 <label> Contraseña </label>
                 <input type="password" id="pass" placeholder="Ingresar contraseña" name="passw" required>
 
+                <label> Confirmar contraseña </label>
+                <input type="password" id="rePassword" placeholder="Confirma tu contraseña" name="passwC" required>
             </div>
 
             <button type="submit" class="btn accept"> Registrarse</button>
@@ -766,8 +722,6 @@
 
         </div>
     </div>
-
-
     <script>
         window.onload = function () {
 
@@ -834,6 +788,7 @@
                 ocultarmostrarPyT();
                 document.getElementById('accountUp').style.display = "block";
             }
+
 
             function agregarCuentas() {
                 ocultarmostrarPyT()
@@ -954,46 +909,35 @@
             function ocultarContainerLyR() {
                 document.getElementById('containerLogin').style.display = "none";
                 document.getElementById('containerR').style.display = "none";
-                document.getElementById('containerRegUser').style.display="none";
             }
 
             function ocultarContainerRyP() {
                 document.getElementById('containerR').style.display = "none";
                 document.getElementById('containerPrincipal').style.display = "none";
-                document.getElementById('containerRegUser').style.display="none";
             }
 
             function ocultarContainerPyL() {
                 document.getElementById('containerPrincipal').style.display = "none";
-                document.getElementById('containerLogin').style.display = "none";
+                document.getElementById('containerLogin').style.display = "none"
             }
 
             function mostrarContainerL() {
                 ocultarContainerRyP();
-                document.getElementById('containerRegUser').style.display="none";
                 document.getElementById('containerLogin').style.display = "block"
             }
 
             function mostrarContainerP() {
                 ocultarContainerLyR();
-                document.getElementById('containerRegUser').style.display="none";
                 document.getElementById('containerPrincipal').style.display = "block"
             }
 
             function mostrarContainerR() {
                 ocultarContainerPyL();
-                document.getElementById('containerRegUser').style.display="none";
                 document.getElementById('containerR').style.display = "block"
             }
 
-            function mostrarContainerRegUser(){
-                ocultarContainerPyL();
-                document.getElementById('containerR').style.display="none";
-                documen.getElementById('containerRegUser').style.display="block";
-            }
-
             const url = `http://localhost:3000/`;
-            const toRegister = document.getElementById('toRegister').addEventListener('click', (e) => mostrarContainerRegUser());
+            const toRegister = document.getElementById('toRegister').addEventListener('click', (e) => mostrarContainerR());
             const toLogin = document.getElementById('toLogin').addEventListener('click', (e) => mostrarContainerL());
             const showAccount = document.getElementById('showAccount').addEventListener('click', (e) => mostrarCuentas());
             const showCard = document.getElementById('showCard').addEventListener('click', (e) => mostrarTarjetas());
@@ -1006,7 +950,8 @@
             const cancelCard1 = document.getElementById('cancelCard1').addEventListener('click', (e) => mostrarTarjetas());
             const cancelAccount1 = document.getElementById('cancelAccount1').addEventListener('click', (e) => mostrarCuentas());
 
-            //register
+
+            //register user
             var register = document.getElementById('register');
 
 
@@ -1021,13 +966,14 @@
 
                 console.log("entro");
 
-                var name = document.getElementById('name').value
-                var email = document.getElementById('email').value
-                var username = document.getElementById('user').value
-                var password = document.getElementById('pass').value
-
-
-                fetch(`${url}register`, {
+                let name = document.getElementById('name').value
+                let email = document.getElementById('email').value
+                let username = document.getElementById('user').value
+                let password = document.getElementById('pass').value
+                let confirmPass = document.getElementById('rePassword').value
+                
+                if(confirmPass === password){
+                    fetch(`${url}register`, {
                     method: 'POST',
                     body: JSON.stringify({
                         username: username,
@@ -1044,7 +990,11 @@
                     .then(data => {
 
                     })
-                    .catch(err => console.log(err))
+                    .catch(err => console.log(err))    
+                }else{
+                    alert("Las contraseñas no coinciden, intente de nuevo");
+                }
+                
 
             })
 
