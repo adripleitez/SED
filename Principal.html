@@ -641,45 +641,7 @@
                     <button type="button" id="addCount" class="btn accept"> Agregar Nueva Cuenta</button>
                 </div>
 
-                <table>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                        <th>Accion</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td><a id="e" href="#Editar">Editar</a>
-                            <a id="d" href="#Eliminar">Eliminar</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
+                <table id="table-accounts">
                 </table>
             </div>
 
@@ -689,56 +651,7 @@
                     <button type="button" id="addCard" class="btn accept"> Agregar Nueva Tarjeta</button>
                 </div>
 
-                <table>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                        <th>Accion</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td><a id="e1" href="#Editar">Editar</a>
-                            <a id="d1" href="#Eliminar">Eliminar</td>
-
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                        <td><a id="e2" href="#Editar">Editar</a>
-                            <a id="d2" href="#Eliminar">Eliminar</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                        <td><a id="e3" href="#Editar">Editar</a>
-                            <a id="d3" href="#Eliminar">Eliminar</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                        <th><a id="e4" href="#Editar">Editar</a>
-                            <a id="d4" href="#Eliminar">Eliminar</th>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                        <td><a id="e5" href="#Editar">Editar</a>
-                            <a id="d5" href="#Eliminar">Eliminar</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                        <td><a id="e1" href="#Editar">Editar</a>
-                            <a id="d1" href="#Eliminar">Eliminar</td>
-                    </tr>
+                <table id="table-cards">
                 </table>
             </div>
 
@@ -902,8 +815,53 @@
                 document.getElementById('tarjetas').style.display = "block";
             }
 
+            function cargarCuentas() {
+
+                let idUser = JSON.parse(window.sessionStorage.getItem('user')).id;
+
+                fetch(`${url}allAccounts?client=${idUser}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-type': 'text/plain',
+                        Accept: 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        let table = document.getElementById('table-accounts');
+                        let html = `
+                        <tr>
+                            <th>Numero</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </tr>
+                        `;
+                        data.forEach(obj => {
+                            let state = (obj.state? "Activo": "Inactivo");
+                            html+=`
+                            <tr>
+                                <td>${obj.numAccount}</td>
+                                <td>${obj.type}</td>
+                                <td>${obj.balance}</td>
+                                <td>${state}</td>
+                                <td><a id="e2" href="#Editar">Editar</a>
+                                    <a id="d2" href="#Eliminar">Eliminar</td>
+                            </tr>
+                            `;
+                        });
+
+                        //Asignar elementos a la tabla
+                        table.innerHTML = html;
+                    
+                    })
+                    .catch(err => console.log(err))
+                }
+
 
             function mostrarCuentas() {
+                cargarCuentas();
                 ocultarPyTarjetas()
                 ocultarUpAyC();
                 document.getElementById('showAccounts').style.display = "block"
@@ -923,6 +881,35 @@
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
+                        let table = document.getElementById('table-cards');
+                        let html = `
+                        <tr>
+                            <th>Numero</th>
+                            <th>Tipo</th>
+                            <th>Saldo</th>
+                            <th>Vencimiento</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </tr>
+                        `;
+                        data.forEach(obj => {
+                            let state = (obj.state? "Activo": "Inactivo");
+                            html+=`
+                            <tr>
+                                <td>${obj.numCard}</td>
+                                <td>${obj.type}</td>
+                                <td>${obj.balance}</td>
+                                <td>${obj.expDate}</td>
+                                <td>${state}</td>
+                                <td><a id="e2" href="#Editar">Editar</a>
+                                    <a id="d2" href="#Eliminar">Eliminar</td>
+                            </tr>
+                            `;
+                        });
+                        
+                        //Asignar elementos a la tabla
+                        table.innerHTML = html;
+
                     })
                     .catch(err => console.log(err))
             }
@@ -976,13 +963,6 @@
             const logout = document.getElementById('logout').addEventListener('click', (e) => mostrarContainerL());
             const cancelCard1 = document.getElementById('cancelCard1').addEventListener('click', (e) => mostrarTarjetas());
             const cancelAccount1 = document.getElementById('cancelAccount1').addEventListener('click', (e) => mostrarCuentas());
-            // const saveAccount = document.getElementById('saveAccount').addEventListener('click', (e) => mostrarP());
-
-            //botones del formulario (borrar,eliminar)
-            const e1 = document.getElementById('e1').addEventListener('click', (e) => showCardUp())
-            const e = document.getElementById('e').addEventListener('click', (e) => showAccountUp())
-
-
 
             //register
             var register = document.getElementById('register');
