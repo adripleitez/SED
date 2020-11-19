@@ -500,42 +500,6 @@
 
     </div>
 
-
-    <div class="containerR" id="containerR" display="none">
-
-        <h2 class="title"> Registrarse Cliente</h2>
-        <hr>
-
-        <form id="registerClient" action="" method="post">
-
-            <div class="container-principal">
-                <label> Nombre </label>
-                <input type="text" id="nameClient" placeholder="Escribe tu nombre" name="name" required>
-
-                <label> Correo </label>
-                <input type="text" id="emailClient" placeholder="Escribe tu correo electrónico" name="email" required>
-
-                <div class="small-input">
-                    <div>
-                        <label> DUI </label>
-                        <input type="text" id="duiClient" placeholder="Digita tu número de DUI" name="dui" required>
-                    </div>
-
-                    <div>
-                        <label> Teléfono </label>
-                        <input type="tel" id="telClient" placeholder="2222-9999" name="cellphone"
-                            pattern="[0-9]{4}-[0-9]{4}" required>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="btn accept"> Registrarse</button>
-            <button type="button" id="cancelClient" class="btn normal"> Iniciar Sesión</button>
-        </form>
-
-    </div>
-
-
     <div class="containerRegUser" id="containerRegUser" display="none">
 
         <h2 class="title"> Registrarse Usuario</h2>
@@ -658,6 +622,42 @@
                 </form>
             </div>
 
+            <!--GUARDAR NUEVO CLIENTE-->
+            <div class="containerR" id="containerR" display="none">
+
+                <h2 class="title"> Registrarse Cliente</h2>
+                <hr>
+
+                <form id="register-client" method="post">
+
+                    <div class="container-principal">
+                        <label> Nombre </label>
+                        <input type="text" id="nameClient" placeholder="Escribe tu nombre" name="name" required>
+
+                        <label> Correo </label>
+                        <input type="text" id="emailClient" placeholder="Escribe tu correo electrónico" name="email"
+                            required>
+
+                        <div class="small-input">
+
+                            <label> DUI </label>
+                            <input type="text" id="duiClient" placeholder="Digita tu número de DUI" name="dui" required>
+
+                            <label> Teléfono </label>
+                            <input type="text" id="telClient" placeholder="2222-9999" name="phone"
+                                pattern="[0-9]{4}-[0-9]{4}" required>
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn accept"> Guardar</button>
+                    <button type="button" class="btn normal">Cancelar</button>
+                </form>
+
+            </div>
+
+
+
             <!--ESTE ES EL QUE ME INTERESA-->
             <div id="Principal" class="container-table">
                 <div class="small-input">
@@ -764,7 +764,6 @@
                             <input type="radio" id="stateUpAccount2" name="status" value="no-active">
                             <label for="inactivo" style="margin-left: 15px;">Inactivo</label>
                         </div>
-
                     </div>
 
                     <button type="submit" class="btn accept" id="saveUpAccount2"> Guardar</button>
@@ -828,20 +827,20 @@
 
             function cargarClientes() {
 
-                let duiClient = 
+                let duiClient =
 
-                fetch(`${url}allClients`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-type': 'text/plain',
-                        Accept: 'application/json'
-                    }
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        let table = document.getElementById('table-clients');
-                        let html = `
+                    fetch(`${url}allClients`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-type': 'text/plain',
+                            Accept: 'application/json'
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            let table = document.getElementById('table-clients');
+                            let html = `
                             <tr>
                                 <th>DUI</th>
                                 <th>Nombre</th>
@@ -849,9 +848,9 @@
                                 <th>Correo</th>
                             </tr>
                             `;
-                        data.forEach(obj => {
-                            let state = (obj.state ? "Activo" : "Inactivo");
-                            html += `
+                            data.forEach(obj => {
+                                let state = (obj.state ? "Activo" : "Inactivo");
+                                html += `
                             <tr>
                                 <td>${obj.dui}</td>
                                 <td>${obj.name}</td>
@@ -859,13 +858,13 @@
                                 <td>${obj.email}</td>
                             </tr>
                             `;
-                        });
+                            });
 
-                        //Asignar elementos a la tabla
-                        table.innerHTML = html;
+                            //Asignar elementos a la tabla
+                            table.innerHTML = html;
 
-                    })
-                    .catch(err => console.log(err))
+                        })
+                        .catch(err => console.log(err))
             }
 
 
@@ -874,18 +873,26 @@
                 ocultarAgregarCyT();
                 ocultarMostrarCyT();
                 ocultarUpAyC();
+                document.getElementById('containerR').style.display = "none";
                 document.getElementById('Principal').style.display = "block";
+            }
+
+            function mostrarR() {
+                ocultarPyCuentas();
+                document.getElementById('containerR').style.display = "block";
             }
 
             function showCardUp() {
                 ocultarPyCuentas();
-                ocultarmostrarPyC()
+                ocultarmostrarPyC();
+                document.getElementById('containerR').style.display = "none";
                 document.getElementById('updateCard').style.display = "block";
             }
 
             function showAccountUp() {
                 ocultarPyTarjetas();
                 ocultarmostrarPyT();
+                document.getElementById('containerR').style.display = "none";
                 document.getElementById('accountUp').style.display = "block";
             }
 
@@ -893,11 +900,13 @@
             function agregarCuentas() {
                 ocultarmostrarPyT()
                 ocultarUpAyC();
+                document.getElementById('containerR').style.display = "none";
                 document.getElementById('cuentas').style.display = "block";
             }
             function agregarTarjetas() {
                 ocultarmostrarPyC();
                 ocultarUpAyC();
+                document.getElementById('containerR').style.display = "none";
                 document.getElementById('tarjetas').style.display = "block";
             }
 
@@ -1025,13 +1034,13 @@
                 document.getElementById('containerPrincipal').style.display = "block"
             }
 
-            function mostrarContainerR() {
+            function mostrarContainerReg() {
                 ocultarContainerPyL();
                 document.getElementById('containerRegUser').style.display = "block"
             }
 
             const url = `http://localhost:3000/`;
-            const toRegister = document.getElementById('toRegister').addEventListener('click', (e) => mostrarContainerR());
+            const toRegister = document.getElementById('toRegister').addEventListener('click', (e) => mostrarContainerReg());
             const toLogin = document.getElementById('toLogin').addEventListener('click', (e) => mostrarContainerL());
             const addCard = document.getElementById('addCard').addEventListener('click', (e) => agregarTarjetas());
             const addCount = document.getElementById('addCount').addEventListener('click', (e) => agregarCuentas());
@@ -1041,6 +1050,44 @@
             const logout = document.getElementById('logout').addEventListener('click', (e) => mostrarContainerL());
             const cancelCard1 = document.getElementById('cancelCard1').addEventListener('click', (e) => mostrarTarjetas());
             const cancelAccount1 = document.getElementById('cancelAccount1').addEventListener('click', (e) => mostrarCuentas());
+            const registerClient = document.getElementById('addClient').addEventListener('click', (e) => mostrarR());
+
+            var saveClient = document.getElementById('register-client');
+
+            saveClient.addEventListener('button', (e) =>{
+                e.preventDefault();
+                mostrarP();
+            });
+
+
+            saveClient.addEventListener('submit', (e)=>{
+                e.preventDefault();
+
+                let name = document.getElementById('nameClient').value
+                let email = document.getElementById('emailClient').value
+                let phone = document.getElementById('telClient').value
+                let dui = document.getElementById('duiClient').value
+
+                
+                    fetch(`${url}addClient`, {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            phone: phone,
+                            name: name,
+                            email: email,
+                            dui: dui
+                        }),
+                        headers: {
+                            'Content-type': 'text/plain',
+                            Accept: 'application/json'
+                        }
+                    })
+                        .then(()=>{
+                            mostrarP();
+                        })
+                        .catch(err => console.log(err))
+
+            })
 
             //register
             var register = document.getElementById('register');
