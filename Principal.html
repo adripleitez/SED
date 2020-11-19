@@ -660,7 +660,7 @@
 
             <!--ESTE ES EL QUE ME INTERESA-->
             <div id="Principal" class="container-table">
-                <div class = "small-input">
+                <div class="small-input">
                     <div>
                         <input type="text" id="searchDui" placeholder="Ingrese un DUI" name="dui" required>
                     </div>
@@ -669,6 +669,8 @@
                         <button type="submit" id="searchClient" class="btn accept">Buscar cliente</button>
                     </div>
                 </div>
+                <table id="table-clients">
+                </table>
             </div>
 
             <div id="showAccounts" class="container-tableA">
@@ -823,7 +825,52 @@
                 document.getElementById('updateCard').style.display = "none";
             }
 
+
+            function cargarClientes() {
+
+                let duiClient = 
+
+                fetch(`${url}allClients`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-type': 'text/plain',
+                        Accept: 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        let table = document.getElementById('table-clients');
+                        let html = `
+                            <tr>
+                                <th>DUI</th>
+                                <th>Nombre</th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                            </tr>
+                            `;
+                        data.forEach(obj => {
+                            let state = (obj.state ? "Activo" : "Inactivo");
+                            html += `
+                            <tr>
+                                <td>${obj.dui}</td>
+                                <td>${obj.name}</td>
+                                <td>${obj.phone}</td>
+                                <td>${obj.email}</td>
+                            </tr>
+                            `;
+                        });
+
+                        //Asignar elementos a la tabla
+                        table.innerHTML = html;
+
+                    })
+                    .catch(err => console.log(err))
+            }
+
+
             function mostrarP() {
+                cargarClientes();
                 ocultarAgregarCyT();
                 ocultarMostrarCyT();
                 ocultarUpAyC();
